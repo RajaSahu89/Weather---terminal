@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>weather.db — query the sky</title>
+<meta name="description" content="A weather lookup tool styled as a live SQL terminal, powered by the Open-Meteo API.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="terminal">
+  <div class="titlebar">
+    <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+    <span>weather.db — psql</span>
+  </div>
+  <div class="body">
+    <p class="prompt-line">
+      <span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">weather</span>
+      <span class="kw">WHERE</span> city = <span id="cityEcho">'?'</span>;
+    </p>
+
+    <form id="queryForm">
+      <label for="cityInput" class="visually-hidden" style="position:absolute;left:-9999px;">City name</label>
+      <input type="text" id="cityInput" placeholder="e.g. Kolkata" autocomplete="off" />
+      <button type="submit">Run query</button>
+    </form>
+    <button type="button" class="locbtn" id="locBtn">or use my current location →</button>
+
+    <p class="status" id="status" aria-live="polite"></p>
+
+    <div id="results"></div>
+  </div>
+</main>
+
+<footer>
+  built with the Open-Meteo API · no key, no tracking, no rows dropped
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
