@@ -111,6 +111,5 @@
     );
   });
 
-  // default demo row on load
   fetchByCity('Kolkata');
 })();
